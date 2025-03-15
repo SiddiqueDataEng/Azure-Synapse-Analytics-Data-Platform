@@ -1,0 +1,145 @@
+# =====================================================
+# Azure Synapse Analytics Data Platform (ASADP)
+# Terraform Variables Example File
+# Copy this file to terraform.tfvars and customize
+# =====================================================
+
+# Environment Configuration
+environment         = "dev"
+location           = "East US"
+resource_group_name = "rg-asadp-dev"
+
+# SQL Configuration
+sql_admin_username = "sqladmin"
+sql_admin_password = "YourSecurePassword123!"
+
+# Administrator Configuration
+admin_email = "admin@company.com"
+
+# Feature Flags
+enable_private_endpoints = false
+enable_managed_vnet      = true
+
+# Network Configuration (if using private endpoints)
+# synapse_subnet_id = "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Network/virtualNetworks/your-vnet/subnets/synapse-subnet"
+# data_subnet_id    = "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Network/virtualNetworks/your-vnet/subnets/data-subnet"
+
+# Synapse Workspace Configuration
+synapse_workspace_config = {
+  enable_git_integration    = false
+  git_account_name         = ""
+  git_project_name         = ""
+  git_repository_name      = ""
+  git_collaboration_branch = "main"
+  git_root_folder          = "/synapse"
+}
+
+# SQL Pool Configuration
+sql_pool_config = {
+  name                      = "DataWarehouse"
+  sku_name                 = "DW100c"
+  create_mode              = "Default"
+  collation                = "SQL_Latin1_General_CP1_CI_AS"
+  geo_backup_policy_enabled = true
+}
+
+# Spark Pool Configuration
+spark_pool_config = {
+  name                           = "SparkPool"
+  node_size_family              = "MemoryOptimized"
+  node_size                     = "Small"
+  min_node_count                = 3
+  max_node_count                = 10
+  auto_pause_enabled            = true
+  auto_pause_delay_in_minutes   = 15
+  spark_version                 = "3.4"
+  session_level_packages_enabled = true
+  cache_size                    = 50
+}
+
+# Data Lake Configuration
+data_lake_config = {
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  access_tier              = "Hot"
+  enable_versioning        = false
+  backup_retention_days    = 7
+}
+
+# Data Lake Containers
+data_lake_containers = [
+  "raw",
+  "processed",
+  "curated",
+  "sandbox",
+  "synapse",
+  "models",
+  "logs"
+]
+
+# Security Configuration
+security_config = {
+  key_vault_sku                   = "standard"
+  key_vault_soft_delete_retention = 90
+  enable_purge_protection         = false
+  enable_rbac_authorization       = true
+}
+
+# Monitoring Configuration
+monitoring_config = {
+  log_analytics_sku  = "PerGB2018"
+  log_retention_days = 30
+  daily_quota_gb     = 10
+  application_insights_type = "web"
+}
+
+# Machine Learning Configuration
+ml_config = {
+  friendly_name                   = "Synapse ML Workspace"
+  high_business_impact           = false
+  enable_public_network_access   = true
+  container_registry_sku         = "Standard"
+}
+
+# Network Configuration
+network_config = {
+  virtual_network_name   = ""
+  synapse_subnet_name    = "synapse-subnet"
+  data_subnet_name       = "data-subnet"
+  enable_ddos_protection = false
+}
+
+# Backup and Disaster Recovery Configuration
+backup_config = {
+  enable_geo_backup            = true
+  backup_retention_days        = 7
+  enable_point_in_time_restore = true
+  cross_region_restore_enabled = false
+}
+
+# Cost Management Configuration
+cost_config = {
+  enable_auto_pause        = true
+  auto_pause_delay_minutes = 15
+  enable_auto_scale        = true
+  budget_amount            = 1000
+  budget_time_grain        = "Monthly"
+}
+
+# Development and Testing Configuration
+dev_config = {
+  enable_sample_data      = false
+  create_sample_notebooks = false
+  create_sample_pipelines = false
+  enable_debug_logging    = false
+}
+
+# Tagging
+tags = {
+  Owner       = "DataEngineering"
+  CostCenter  = "IT-DataPlatform"
+  Project     = "ASADP"
+  Environment = "dev"
+  Department  = "IT"
+  Application = "SynapseAnalytics"
+}
