@@ -1,0 +1,578 @@
+# Azure Synapse Analytics Data Platform - .gitignore
+
+# =====================================================
+# Python
+# =====================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# =====================================================
+# Azure and Cloud
+# =====================================================
+# Azure CLI
+.azure/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+*.tfplan
+
+# Bicep
+*.bicep.json
+
+# Azure Resource Manager
+*.azureauth
+
+# =====================================================
+# Synapse Specific
+# =====================================================
+# Synapse workspace files
+.synapse/
+synapse-workspace.json
+
+# Spark configuration
+spark-defaults.conf
+log4j.properties
+
+# Delta Lake
+_delta_log/
+*.checkpoint
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# =====================================================
+# IDE and Editors
+# =====================================================
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+bin/
+obj/
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =====================================================
+# Operating System
+# =====================================================
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =====================================================
+# Logs and Temporary Files
+# =====================================================
+logs/
+*.log
+*.log.*
+log-*.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node_modules
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+.tmp/
+.temp/
+
+# =====================================================
+# Security and Secrets
+# =====================================================
+# Secrets and credentials
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets.json
+appsettings.*.json
+connectionstrings.json
+.secrets/
+
+# API keys and tokens
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+api-keys.txt
+tokens.txt
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# =====================================================
+# Data Files
+# =====================================================
+# Large data files
+*.csv
+*.parquet
+*.json
+*.xml
+*.xlsx
+*.xls
+*.avro
+*.orc
+
+# Data directories
+data/
+datasets/
+raw-data/
+processed-data/
+curated-data/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# =====================================================
+# Machine Learning
+# =====================================================
+# Model files
+*.pkl
+*.joblib
+*.h5
+*.pb
+*.onnx
+*.pt
+*.pth
+
+# Model directories
+models/
+checkpoints/
+saved_models/
+experiments/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Weights & Biases
+wandb/
+
+# TensorBoard
+runs/
+
+# =====================================================
+# Build and Deployment
+# =====================================================
+# Build outputs
+build/
+dist/
+out/
+target/
+*.war
+*.jar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Package files
+*.nupkg
+*.snupkg
+*.deb
+*.rpm
+
+# Docker
+Dockerfile.prod
+docker-compose.override.yml
+.dockerignore
+
+# Kubernetes
+*.kubeconfig
+kube-config
+
+# Helm
+charts/*/charts/
+charts/*/requirements.lock
+
+# =====================================================
+# Monitoring and Analytics
+# =====================================================
+# Application Insights
+ApplicationInsights.config
+
+# New Relic
+newrelic.ini
+
+# Datadog
+datadog.yaml
+
+# =====================================================
+# Testing
+# =====================================================
+# Test results
+TestResults/
+test-results/
+*.trx
+*.xml
+
+# Performance test results
+*.loadtest
+*.webtest
+
+# =====================================================
+# Documentation
+# =====================================================
+# Generated documentation
+docs/_build/
+docs/build/
+site/
+
+# =====================================================
+# Spark Specific
+# =====================================================
+# Spark logs
+spark-warehouse/
+derby.log
+metastore_db/
+
+# Spark temporary files
+*.crc
+.spark-*
+
+# =====================================================
+# Delta Lake Specific
+# =====================================================
+# Delta Lake transaction logs
+_delta_log/
+*.checkpoint
+*.json
+*.parquet
+
+# =====================================================
+# Project Specific
+# =====================================================
+# Sample data (keep structure, remove actual data)
+sample-data/
+!sample-data/schemas/
+!sample-data/README.md
+
+# Configuration overrides
+config/local/
+config/development/
+config/production/
+
+# Deployment artifacts
+deployment-artifacts/
+release-notes/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Cache directories
+.cache/
+cache/
+
+# Temporary processing files
+processing/
+staging/
+temp-data/
+
+# =====================================================
+# Synapse Artifacts (Selective)
+# =====================================================
+# Keep important Synapse artifacts but exclude generated ones
+!synapse/sql-pools/**/*.sql
+!synapse/spark-pools/notebooks/*.ipynb
+!synapse/pipelines/**/*.json
+!synapse/datasets/**/*.json
+!synapse/linkedServices/**/*.json
+
+# Exclude Synapse generated files
+synapse/.temp/
+synapse/workspace.json
+synapse/integrationRuntime/
+
+# =====================================================
+# Exclude Patterns for Important Files
+# =====================================================
+# Keep important configuration templates
+!config/environments/*.json
+!infrastructure/bicep/*.bicep
+!infrastructure/terraform/*.tf
+!scripts/*.ps1
+!docs/**/*.md
+
+# Keep sample schemas and reference data
+!data/schemas/
+!data/reference-data/
+
+# Keep test fixtures
+!tests/fixtures/
+!tests/data/
+
+# =====================================================
+# IDE Specific Ignores
+# =====================================================
+# Rider
+.idea/
+*.sln.iml
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.classpath
+.factorypath
+.buildpath
+.target
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# =====================================================
+# End of .gitignore
+# =====================================================

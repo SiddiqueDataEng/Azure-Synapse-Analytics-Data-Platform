@@ -1,0 +1,200 @@
+{
+  "environment": "prod",
+  "region": "East US",
+  "resourceGroup": "rg-asadp-prod",
+  "synapse": {
+    "workspaceName": "synapse-asadp-prod",
+    "sqlPool": {
+      "name": "DataWarehouse",
+      "sku": "DW500c",
+      "autoScale": true,
+      "autoPause": false,
+      "pauseDelayMinutes": 0
+    },
+    "sparkPool": {
+      "name": "SparkPool",
+      "nodeSize": "Large",
+      "minNodeCount": 5,
+      "maxNodeCount": 50,
+      "autoScale": true,
+      "autoPause": false,
+      "pauseDelayMinutes": 30,
+      "sparkVersion": "3.4"
+    },
+    "enableManagedVNet": true,
+    "enableGitIntegration": true,
+    "gitConfiguration": {
+      "accountName": "your-github-account",
+      "projectName": "Azure-Synapse-Analytics-Data-Platform",
+      "repositoryName": "Azure-Synapse-Analytics-Data-Platform",
+      "collaborationBranch": "main",
+      "rootFolder": "/synapse"
+    }
+  },
+  "dataLake": {
+    "storageAccount": "dlasadpprod",
+    "replicationType": "ZRS",
+    "accessTier": "Hot",
+    "containers": [
+      "raw",
+      "processed",
+      "curated",
+      "sandbox",
+      "synapse",
+      "models",
+      "logs",
+      "archive"
+    ],
+    "enableVersioning": true,
+    "backupRetentionDays": 30
+  },
+  "machineLearning": {
+    "workspaceName": "ml-asadp-prod",
+    "computeInstances": [
+      {
+        "name": "prod-compute-cpu",
+        "vmSize": "Standard_DS5_v2",
+        "minNodes": 2,
+        "maxNodes": 20
+      },
+      {
+        "name": "prod-compute-gpu",
+        "vmSize": "Standard_NC6s_v3",
+        "minNodes": 0,
+        "maxNodes": 10
+      }
+    ],
+    "enableHBI": true
+  },
+  "security": {
+    "enablePrivateEndpoints": true,
+    "keyVault": {
+      "sku": "premium",
+      "softDeleteRetentionDays": 90,
+      "enablePurgeProtection": true
+    },
+    "enableRBAC": true,
+    "enableDataClassification": true,
+    "enableTDE": true,
+    "enableAuditLogging": true
+  },
+  "monitoring": {
+    "logAnalytics": {
+      "sku": "PerGB2018",
+      "retentionDays": 90,
+      "dailyQuotaGB": 50
+    },
+    "applicationInsights": {
+      "type": "web",
+      "samplingPercentage": 10
+    },
+    "enableDiagnostics": true,
+    "alertRules": [
+      {
+        "name": "Critical CPU Usage",
+        "metric": "cpu_percent",
+        "threshold": 90,
+        "operator": "GreaterThan",
+        "timeWindow": "PT5M",
+        "severity": "Critical"
+      },
+      {
+        "name": "High Memory Usage",
+        "metric": "memory_percent",
+        "threshold": 85,
+        "operator": "GreaterThan",
+        "timeWindow": "PT5M",
+        "severity": "Warning"
+      },
+      {
+        "name": "Failed Pipeline Runs",
+        "metric": "PipelineFailedRuns",
+        "threshold": 1,
+        "operator": "GreaterThan",
+        "timeWindow": "PT5M",
+        "severity": "Critical"
+      },
+      {
+        "name": "High Query Duration",
+        "metric": "QueryDuration",
+        "threshold": 300,
+        "operator": "GreaterThan",
+        "timeWindow": "PT10M",
+        "severity": "Warning"
+      },
+      {
+        "name": "Storage Usage High",
+        "metric": "StorageUsedPercent",
+        "threshold": 80,
+        "operator": "GreaterThan",
+        "timeWindow": "PT15M",
+        "severity": "Warning"
+      }
+    ]
+  },
+  "costManagement": {
+    "budgetAmount": 10000,
+    "budgetTimeGrain": "Monthly",
+    "enableAutoShutdown": false,
+    "autoShutdownTime": "02:00",
+    "enableCostAlerts": true,
+    "costThresholds": [60, 80, 95]
+  },
+  "dataGovernance": {
+    "enableDataCatalog": true,
+    "enableLineageTracking": true,
+    "dataRetentionPolicies": {
+      "raw": "P90D",
+      "processed": "P365D",
+      "curated": "P2555D",
+      "archive": "P3650D"
+    },
+    "enableDataQualityRules": true,
+    "enableDataMasking": true,
+    "enableRowLevelSecurity": true
+  },
+  "networking": {
+    "enableManagedVNet": true,
+    "allowedIPRanges": [
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16"
+    ],
+    "enableFirewall": true,
+    "enableDDoSProtection": true
+  },
+  "backup": {
+    "enableGeoBackup": true,
+    "backupRetentionDays": 35,
+    "enablePointInTimeRestore": true,
+    "crossRegionRestore": true,
+    "backupSchedule": {
+      "frequency": "Daily",
+      "time": "02:00"
+    }
+  },
+  "disasterRecovery": {
+    "enableGeoReplication": true,
+    "secondaryRegion": "West US 2",
+    "rpo": "PT1H",
+    "rto": "PT4H",
+    "enableAutoFailover": false
+  },
+  "compliance": {
+    "enableSOC2": true,
+    "enableHIPAA": false,
+    "enablePCIDSS": false,
+    "enableGDPR": true,
+    "enableISO27001": true
+  },
+  "tags": {
+    "Environment": "Production",
+    "Project": "ASADP",
+    "Owner": "DataEngineering",
+    "CostCenter": "IT-DataPlatform",
+    "Criticality": "High",
+    "DataClassification": "Confidential",
+    "BackupRequired": "Yes",
+    "MonitoringLevel": "Enhanced"
+  }
+}

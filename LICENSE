@@ -1,0 +1,201 @@
+MIT License
+
+Copyright (c) 2026 Azure Synapse Analytics Data Platform (ASADP)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+THIRD-PARTY LICENSES
+
+This software includes third-party components with their own licenses:
+
+Azure SDK for Python
+- License: MIT License
+- Copyright: Microsoft Corporation
+
+Apache Spark
+- License: Apache License 2.0
+- Copyright: The Apache Software Foundation
+
+Pandas
+- License: BSD 3-Clause License
+- Copyright: AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
+
+NumPy
+- License: BSD 3-Clause License
+- Copyright: NumPy Developers
+
+Scikit-learn
+- License: BSD 3-Clause License
+- Copyright: The scikit-learn developers
+
+MLflow
+- License: Apache License 2.0
+- Copyright: Databricks, Inc.
+
+Delta Lake
+- License: Apache License 2.0
+- Copyright: The Linux Foundation
+
+Matplotlib
+- License: PSF License
+- Copyright: Matplotlib Development Team
+
+Seaborn
+- License: BSD 3-Clause License
+- Copyright: Michael Waskom
+
+================================================================================
+
+AZURE SERVICES TERMS
+
+This software is designed to work with Microsoft Azure services. Use of Azure 
+services is subject to the Microsoft Azure Service Terms and Microsoft Privacy 
+Statement:
+
+- Azure Service Terms: https://azure.microsoft.com/en-us/support/legal/
+- Microsoft Privacy Statement: https://privacy.microsoft.com/en-us/privacystatement
+
+================================================================================
+
+DATA PROCESSING AND PRIVACY
+
+This software processes enterprise data and may handle sensitive information. 
+Users are responsible for:
+
+1. Ensuring compliance with applicable data protection regulations (GDPR, CCPA, etc.)
+2. Implementing appropriate data security measures
+3. Obtaining necessary consents for data processing
+4. Maintaining audit trails and data lineage
+5. Implementing data retention and deletion policies
+6. Ensuring proper data classification and handling
+
+================================================================================
+
+SECURITY DISCLAIMER
+
+This software includes data analytics capabilities and handles enterprise data. 
+Users must:
+
+1. Implement proper authentication and authorization
+2. Use secure communication channels (HTTPS/TLS)
+3. Regularly update dependencies and security patches
+4. Conduct security assessments and penetration testing
+5. Monitor for security vulnerabilities and incidents
+6. Implement network security controls
+7. Enable audit logging and monitoring
+
+================================================================================
+
+COMPLIANCE NOTICE
+
+This software may be subject to various regulatory requirements including but 
+not limited to:
+
+- General Data Protection Regulation (GDPR)
+- California Consumer Privacy Act (CCPA)
+- Health Insurance Portability and Accountability Act (HIPAA)
+- Sarbanes-Oxley Act (SOX)
+- Payment Card Industry Data Security Standard (PCI DSS)
+- ISO 27001 Information Security Management
+- SOC 2 Type II Compliance
+
+Users are responsible for ensuring compliance with all applicable regulations 
+in their jurisdiction.
+
+================================================================================
+
+PERFORMANCE AND SCALABILITY
+
+This platform is designed for enterprise-scale data processing. Users should:
+
+1. Monitor resource utilization and costs
+2. Implement appropriate scaling policies
+3. Optimize queries and data processing workflows
+4. Use proper data partitioning strategies
+5. Implement caching where appropriate
+6. Monitor and tune performance regularly
+
+================================================================================
+
+SUPPORT AND MAINTENANCE
+
+This software is provided as-is. For enterprise support, professional services, 
+or custom development, please contact:
+
+Email: support@asadp-platform.com
+Website: https://github.com/SiddiqueDataEng/Azure-Synapse-Analytics-Data-Platform
+
+================================================================================
+
+CHANGELOG
+
+Version 1.0.0 (2026-01-29)
+- Initial release of Azure Synapse Analytics Data Platform
+- Unified analytics workspace with SQL and Spark compute engines
+- Advanced machine learning integration with Azure ML and MLflow
+- Comprehensive data warehousing with dedicated SQL pools and serverless SQL
+- Production-ready infrastructure templates (Bicep and Terraform)
+- Complete data pipeline orchestration and monitoring
+- Enterprise-grade security and compliance features
+- Medallion architecture implementation (Bronze, Silver, Gold)
+- Real-time and batch processing capabilities
+
+================================================================================
+
+ACKNOWLEDGMENTS
+
+This project was developed using Microsoft Azure Synapse Analytics and 
+open-source technologies. We acknowledge the contributions of the open-source 
+community and Microsoft Azure team in making this platform possible.
+
+Special thanks to:
+- Microsoft Azure Synapse Analytics team for the unified analytics platform
+- Apache Spark community for big data processing capabilities
+- Delta Lake team for ACID transactions on data lakes
+- MLflow team for machine learning lifecycle management
+- The broader Python and open-source data science community
+
+================================================================================
+
+DATA ARCHITECTURE PATTERNS
+
+This platform implements several industry-standard data architecture patterns:
+
+1. **Medallion Architecture**: Bronze (raw), Silver (processed), Gold (curated)
+2. **Modern Data Warehouse**: Combining data lake and data warehouse capabilities
+3. **Lambda Architecture**: Supporting both batch and real-time processing
+4. **Data Mesh**: Enabling domain-driven data ownership and governance
+5. **Lakehouse**: Unified analytics on data lakes with ACID transactions
+
+================================================================================
+
+BEST PRACTICES
+
+When using this platform, follow these best practices:
+
+1. **Data Governance**: Implement proper data classification and lineage tracking
+2. **Security**: Use role-based access control and data masking
+3. **Performance**: Optimize data partitioning and query patterns
+4. **Cost Management**: Monitor usage and implement auto-pause policies
+5. **Monitoring**: Set up comprehensive alerting and logging
+6. **Backup**: Implement regular backup and disaster recovery procedures
+
+================================================================================

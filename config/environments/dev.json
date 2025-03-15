@@ -1,0 +1,138 @@
+{
+  "environment": "dev",
+  "region": "East US",
+  "resourceGroup": "rg-asadp-dev",
+  "synapse": {
+    "workspaceName": "synapse-asadp-dev",
+    "sqlPool": {
+      "name": "DataWarehouse",
+      "sku": "DW100c",
+      "autoScale": false,
+      "autoPause": true,
+      "pauseDelayMinutes": 60
+    },
+    "sparkPool": {
+      "name": "SparkPool",
+      "nodeSize": "Small",
+      "minNodeCount": 3,
+      "maxNodeCount": 10,
+      "autoScale": true,
+      "autoPause": true,
+      "pauseDelayMinutes": 15,
+      "sparkVersion": "3.4"
+    },
+    "enableManagedVNet": true,
+    "enableGitIntegration": true,
+    "gitConfiguration": {
+      "accountName": "your-github-account",
+      "projectName": "Azure-Synapse-Analytics-Data-Platform",
+      "repositoryName": "Azure-Synapse-Analytics-Data-Platform",
+      "collaborationBranch": "main",
+      "rootFolder": "/synapse"
+    }
+  },
+  "dataLake": {
+    "storageAccount": "dlasadpdev",
+    "replicationType": "LRS",
+    "accessTier": "Hot",
+    "containers": [
+      "raw",
+      "processed",
+      "curated",
+      "sandbox",
+      "synapse",
+      "models",
+      "logs"
+    ],
+    "enableVersioning": false,
+    "backupRetentionDays": 7
+  },
+  "machineLearning": {
+    "workspaceName": "ml-asadp-dev",
+    "computeInstances": [
+      {
+        "name": "dev-compute",
+        "vmSize": "Standard_DS3_v2",
+        "minNodes": 0,
+        "maxNodes": 4
+      }
+    ],
+    "enableHBI": false
+  },
+  "security": {
+    "enablePrivateEndpoints": false,
+    "keyVault": {
+      "sku": "standard",
+      "softDeleteRetentionDays": 90,
+      "enablePurgeProtection": false
+    },
+    "enableRBAC": true,
+    "enableDataClassification": true
+  },
+  "monitoring": {
+    "logAnalytics": {
+      "sku": "PerGB2018",
+      "retentionDays": 30,
+      "dailyQuotaGB": 1
+    },
+    "applicationInsights": {
+      "type": "web",
+      "samplingPercentage": 100
+    },
+    "enableDiagnostics": true,
+    "alertRules": [
+      {
+        "name": "High CPU Usage",
+        "metric": "cpu_percent",
+        "threshold": 80,
+        "operator": "GreaterThan",
+        "timeWindow": "PT5M"
+      },
+      {
+        "name": "Failed Pipeline Runs",
+        "metric": "PipelineFailedRuns",
+        "threshold": 1,
+        "operator": "GreaterThan",
+        "timeWindow": "PT15M"
+      }
+    ]
+  },
+  "costManagement": {
+    "budgetAmount": 500,
+    "budgetTimeGrain": "Monthly",
+    "enableAutoShutdown": true,
+    "autoShutdownTime": "22:00",
+    "enableCostAlerts": true,
+    "costThresholds": [50, 75, 90]
+  },
+  "dataGovernance": {
+    "enableDataCatalog": true,
+    "enableLineageTracking": true,
+    "dataRetentionPolicies": {
+      "raw": "P30D",
+      "processed": "P90D",
+      "curated": "P365D"
+    },
+    "enableDataQualityRules": true
+  },
+  "networking": {
+    "enableManagedVNet": true,
+    "allowedIPRanges": [
+      "0.0.0.0/0"
+    ],
+    "enableFirewall": false
+  },
+  "backup": {
+    "enableGeoBackup": false,
+    "backupRetentionDays": 7,
+    "enablePointInTimeRestore": true
+  },
+  "tags": {
+    "Environment": "Development",
+    "Project": "ASADP",
+    "Owner": "DataEngineering",
+    "CostCenter": "IT-DataPlatform",
+    "Criticality": "Low",
+    "DataClassification": "Internal"
+  }
+}
